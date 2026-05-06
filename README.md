@@ -16,6 +16,6 @@ This assignment comprises various problems that demonstrate fundamental `TypeScr
 - Type Guard/Type Narrowing
 - **Advance Topic** like Type assertion, mapped types, conditional types, utility types etc.
 
-## SOULTION ARE GIVEN ON `solution.ts` file.
+> SOULTIONS ARE GIVEN ON `solution.ts` file.
 
-> Thank you
+### Thank you
