@@ -74,4 +74,23 @@ class Student extends Person {
 
 const student = new Student("Alice", 20, "A");
 student.getDetails();
-console.log(student.getDetails());
+// console.log(student.getDetails());
+
+// ? problem 7
+
+function getIntersection(array1: number[], array2: number[]): number[] {
+	const array2InSet = new Set(array2);
+	const resultSet = new Set<number>();
+	array1.forEach((num) => {
+		if (array2InSet.has(num)) {
+			resultSet.add(num);
+		}
+	});
+	return [...resultSet];
+}
+console.log(
+	getIntersection(
+		[3, 4, 5, 6, 7, 3, 4, 5, 6, 7, 1004, 3, 4, 5, 6, 7],
+		[1, 2, 7, 1004],
+	),
+);
