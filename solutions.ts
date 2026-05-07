@@ -4,7 +4,7 @@ function filterEvenNumbers(needFilter: number[]): number[] {
 	return evenNumList;
 }
 
-console.log(filterEvenNumbers([1, 2, 3, 4, 5, 6]));
+// console.log(filterEvenNumbers([1, 2, 3, 4, 5, 6]));
 // ? Problem 2
 function reverseString(str: string): string {
 	const reverseStrArray: string[] = [];
@@ -17,3 +17,14 @@ function reverseString(str: string): string {
 }
 
 // console.log(reverseString("typescript"));
+
+// ? problem 3
+function checkType(param: string | number): string {
+	return param === "string" ? "String" : "Number";
+}
+// console.log(checkType(33));
+
+// ? problem 4 that takes an object and a key, then returns the value of that key. Use constraints to ensure the key exists on the object.
+function getProperty<T, K extends keyof T>(obj: T, key: K): any {
+	return obj[key];
+}
