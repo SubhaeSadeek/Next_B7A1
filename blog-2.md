@@ -50,8 +50,10 @@ All without duplicating code.
 We can also do the same with:
 
 > Generics with interface
+
 > Generics with Arrays
-> The core idea will be same.
+
+The core idea will be same.
 
 ---
 
