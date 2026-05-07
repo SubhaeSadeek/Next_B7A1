@@ -1,11 +1,8 @@
-// ? Problem 1:
 function filterEvenNumbers(needFilter: number[]): number[] {
 	const evenNumList = needFilter.filter((num) => num % 2 === 0);
 	return evenNumList;
 }
 
-// console.log(filterEvenNumbers([1, 2, 3, 4, 5, 6]));
-// ? Problem 2
 function reverseString(str: string): string {
 	const reverseStrArray: string[] = [];
 	const splitStr = str.split("");
@@ -16,20 +13,14 @@ function reverseString(str: string): string {
 	return reverseStrArray.join("");
 }
 
-// console.log(reverseString("typescript"));
-
-// ? problem 3
 function checkType(param: string | number): string {
 	return param === "string" ? "String" : "Number";
 }
-// console.log(checkType(33));
 
-// ? problem 4 that takes an object and a key, then returns the value of that key. Use constraints to ensure the key exists on the object.
 function getProperty<T, K extends keyof T>(obj: T, key: K): any {
 	return obj[key];
 }
 
-// ? problem 5
 interface Book {
 	title: string;
 	author: string;
@@ -43,14 +34,7 @@ function toggleReadStatus(book: Book): newBookReadStatus {
 	const newBookStatus: newBookReadStatus = { ...book, isRead: true };
 	return newBookStatus;
 }
-const myBook = {
-	title: "TypeScript Guide",
-	author: "Jane Doe",
-	publishedYear: 2024,
-};
-// console.log(toggleReadStatus(myBook));
 
-// ? problem 6
 class Person {
 	name: string;
 	age: number;
@@ -72,12 +56,6 @@ class Student extends Person {
 	}
 }
 
-const student = new Student("Alice", 20, "A");
-student.getDetails();
-// console.log(student.getDetails());
-
-// ? problem 7
-
 function getIntersection(array1: number[], array2: number[]): number[] {
 	const array2InSet = new Set(array2);
 	const resultSet = new Set<number>();
@@ -88,14 +66,3 @@ function getIntersection(array1: number[], array2: number[]): number[] {
 	});
 	return [...resultSet];
 }
-console.log(
-	getIntersection(
-		[3, 4, 5, 6, 7, 3, 4, 5, 6, 7, 1004, 3, 4, 5, 6, 7],
-		[1, 2, 7, 1004],
-	),
-);
-
-function getLengthAny(value: any): number {
-	return value.length;
-}
-console.log(getLengthAny(undefined));
