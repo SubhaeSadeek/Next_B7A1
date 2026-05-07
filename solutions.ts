@@ -94,3 +94,8 @@ console.log(
 		[1, 2, 7, 1004],
 	),
 );
+
+function getLengthAny(value: any): number {
+	return value.length;
+}
+console.log(getLengthAny(undefined));
