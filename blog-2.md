@@ -11,7 +11,7 @@ Without Generics, developers often fall back to using `any`, which removes TypeS
 
 Example without Generics:
 
-```ts
+```typescript
 function getValue(value: any): any {
 	return value;
 }
@@ -19,18 +19,13 @@ function getValue(value: any): any {
 
 This works, but TypeScript can no longer guarantee what type is returned.
 
-```ts
-const result = getValue("Hello");
-result.toUpperCase();
-```
-
 Now let’s solve this with Generics.
 
-## Generic Functions
+### Generic Functions
 
 A Generic uses a placeholder type, commonly written as `T`.
 
-```ts
+```typescript
 function getValue<T>(value: T): T {
 	return value;
 }
@@ -38,7 +33,7 @@ function getValue<T>(value: T): T {
 
 Now TypeScript understands that the returned value will always match the argument type.
 
-```ts
+```typescript
 const name = getValue<string>("Subhae");
 const age = getValue<number>(24);
 ```
@@ -52,64 +47,17 @@ This gives:
 
 All without duplicating code.
 
----
+We can also do the same with:
 
-# Generics with Arrays
-
-Generics become even more powerful with arrays and collections.
-
-```ts
-function getFirstElement<T>(array: T[]): T {
-	return array[0];
-}
-```
-
-Usage:
-
-```ts
-const firstNumber = getFirstElement([1, 2, 3]);
-const firstString = getFirstElement(["a", "b", "c"]);
-```
-
-TypeScript automatically infers the correct type.
+> Generics with interface
+> Generics with Arrays
+> The core idea will be same.
 
 ---
 
-# Generic Interfaces
+### Generic Constraints
 
-Generics are not limited to functions. They also work with interfaces.
-
-```ts
-interface ApiResponse<T> {
-	success: boolean;
-	data: T;
-}
-```
-
-Usage:
-
-```ts
-interface User {
-	name: string;
-	email: string;
-}
-
-const response: ApiResponse<User> = {
-	success: true,
-	data: {
-		name: "John",
-		email: "john@example.com",
-	},
-};
-```
-
-This pattern is extremely common in API handling.
-
----
-
-# Generic Constraints
-
-Sometimes you want flexibility, but only for types that contain specific properties.
+Sometimes you want flexibility, but only for types that contain specific properties. So, we put constraints so that we can sure the exact types are ensured yet giving us flexibility. This is due to some logic and data type. say we need to get lenght of our argument. we open th edata type with generics. The catch is that not all data type has method lenght. Only `string` nadn `array` has lenght property. soj we put osme constraint as shown below:
 
 ```ts
 function getLength<T extends { length: number }>(value: T): number {
@@ -134,14 +82,10 @@ Because numbers do not have a `length` property.
 
 ---
 
-# Why Generics Matter
+### Conclusion
 
-Generics are one of the foundations of scalable TypeScript applications. They help developers create reusable utilities, API handlers, data structures, hooks, and libraries without sacrificing type safety.
-
-Modern frameworks and libraries like React, Prisma, Redux Toolkit, and TanStack Query heavily rely on Generics internally.
-
-The real power of Generics is this:
+Generics are one of the foundations of scalable TypeScript applications. They help developers create reusable code without sacrificing type safety. In conclusion we can say in loud voice, like what famously quoted by us when we were student in schools _kobi bolechen_ (the poet has told):
 
 > Write once, use everywhere, stay type-safe.
 
-That balance between flexibility and strict typing is what makes TypeScript so powerful.
+That balance between flexibility and strict typing is what makes TypeScript so powerful. That is achieved through generics.
