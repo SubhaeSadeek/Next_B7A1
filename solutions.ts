@@ -28,3 +28,24 @@ function checkType(param: string | number): string {
 function getProperty<T, K extends keyof T>(obj: T, key: K): any {
 	return obj[key];
 }
+
+// ? problem 5
+interface Book {
+	title: string;
+	author: string;
+	publishedYear: number;
+}
+interface newBookReadStatus extends Book {
+	isRead: boolean;
+}
+
+function toggleReadStatus(book: Book): newBookReadStatus {
+	const newBookStatus: newBookReadStatus = { ...book, isRead: true };
+	return newBookStatus;
+}
+const myBook = {
+	title: "TypeScript Guide",
+	author: "Jane Doe",
+	publishedYear: 2024,
+};
+console.log(toggleReadStatus(myBook));
