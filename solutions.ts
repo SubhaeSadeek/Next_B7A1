@@ -48,4 +48,30 @@ const myBook = {
 	author: "Jane Doe",
 	publishedYear: 2024,
 };
-console.log(toggleReadStatus(myBook));
+// console.log(toggleReadStatus(myBook));
+
+// ? problem 6
+class Person {
+	name: string;
+	age: number;
+
+	constructor(name: string, age: number) {
+		this.name = name;
+		this.age = age;
+	}
+}
+
+class Student extends Person {
+	grade: string;
+	constructor(name: string, age: number, grade: string) {
+		super(name, age);
+		this.grade = grade;
+	}
+	getDetails() {
+		return `Name: ${this.name}, Age: ${this.age}, Grade: ${this.grade}`;
+	}
+}
+
+const student = new Student("Alice", 20, "A");
+student.getDetails();
+console.log(student.getDetails());
